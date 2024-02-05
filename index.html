@@ -5,23 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homem-Aranha</title>
     <style>
-        body {
-            background-color: #1a1a1a;
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-            text-align: center;
+        /* Reset de estilos */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        /* Cores e fontes */
+        :root {
+            --primary-color: #e62429;
+            --secondary-color: #842214;
+            --text-color: #fff;
+            --link-color: #ffd700;
+        }
+
+        body {
+            background: #1a1a1a;
+            color: var(--text-color);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            transition: background 0.5s ease-in-out;
+        }
+
         header {
-            background-color: #e62429;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
             padding: 20px;
+            position: relative;
+            border-bottom: 5px solid var(--secondary-color);
+            transition: background 0.5s ease-in-out;
         }
 
         h1 {
             margin: 0;
             font-size: 2em;
+            color: var(--text-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        nav {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            color: var(--link-color);
         }
 
         .hero-description {
@@ -29,6 +69,7 @@
             margin: 20px auto;
             font-size: 1.2em;
             line-height: 1.5;
+            color: #ddd;
         }
 
         .hero-images {
@@ -55,12 +96,60 @@
             padding: 20px;
         }
 
+        button {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+
         footer {
-            background-color: #e62429;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
             padding: 10px;
             position: fixed;
             bottom: 0;
             width: 100%;
+            color: var(--text-color);
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: var(--text-color);
+        }
+
+        /* Efeito de hover global */
+        a:hover, img:hover, button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Adição de animação ao botão */
+        @keyframes buttonAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        button:hover {
+            animation: buttonAnimation 0.5s ease-in-out;
         }
     </style>
 </head>
@@ -68,6 +157,12 @@
 
     <header>
         <h1>Homem-Aranha</h1>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">História</a>
+            <a href="#">Galeria</a>
+            <a href="#">Contato</a>
+        </nav>
     </header>
 
     <section class="hero-description">
@@ -80,9 +175,8 @@
         <img src="homem-aranha2.jpg" alt="Homem-Aranha 2">
     </div>
 
-    <footer>
-        <p>&copy; 2024 Homem-Aranha. Todos os direitos reservados.</p>
-    </footer>
+    <section>
+        <button>Ver Mais</button>
+    </section>
 
-</body>
-</html>
+   
